@@ -75,25 +75,55 @@
         <br>
         This is, as its core, a game of exploration, adventure, and...frankly...violence. You control our noble hero, Frogue, as they traverse the world searching for treasure, and even more treasure. Along the way, Frogue will be attacked, by a great many things, and it falls on your shoulders, brave player, to guide our intrepid frog to glory, and try *really* hard not to die along the way.<br>
         <br>
+        <br>
+        THE GAME SCREEN <br>
+        ----------<br>
+        <br>
+        The main game screen is composed of two distinct parts for now, the MAP and the LOG. The LOG takes up the 'lower third' of the screen, and it presents you with messages telling you what's going on, and the MAP is the rest of the screen. This will change in future updates!<br>
+        <br>
+        Your character, Frogue, is represented on-screen as a stylized "<span style="color: #00ff62">@</span>" symbol, loosely resembling a frog face. Other things are represented by various symbols. <br>
+        - A general rule is that monsters are represened by letters (most often the first letter of their species (eg. '<span style="color: #ff0000">g</span>' for '<span style="color: #ff0000">goblin</span>')), NPCs are represented by "<span style="color: #ffff00">☺</span>" or "<span style="color: #ffff00">☻</span>". <br>
+        - Walls are "<span style="color: rgb(233, 233, 199)">#</span>", and while ground tiles can be represented by various glyphs they'll usually be fairly unassuming.<br>
+        - Right now the 'collectable' items (ie. items you can pick up or equip) don't follow rules, but I'll be adjusting their glyphs such that weapons use ')', armour uses '[', ammunition for ranged weapons use '(', scrolls use '?', potions use '!', and money is '$'. These are fairly common ways to represent these types of items, so I'll try to follow that convention. <br>
+        <br>
+        <br>
         STARTING OUT<br>
         ----------<br>
+        <br>
+        The first thing you see is the title screen, with the totally-not-Koholint-Island ascii art background. You're presented with a basic menu, so go ahead and select <span style="color: #ff00ff">Begin New Game</span>! (Instructions to do so are on-screen...also I really should remove "Quit" from the browser version, it just freezes the game!)<br>
         <br>
         You'll start in an as-yet unnamed town. It's pretty empty for now, but imagine that at some point in the future some friendly (or, perhaps, not-so-friendly) NPCs will reside here to "guide" you. Who knows how useful the babble of local tavern regulars will be! To go about your first exploration, you'll find the exit on the far right side of the road.<br>
         <br>
         When you leave town you'll be greeted with randomly generated dungeons that are pretty hands-off in their generation. What I mean is, I have many different ways to generate maps, and I can layer them for some interesting results, but no care or thought has been put into this yet as the game has no real progression, and this can result in maps that are, in no way, fun to navigate. (Personally, I don't think it's fun to navigate a 100x100 maze...) I'm working on this, but for now, please keep your expecations low until I can put some thought into progression, and progressively complex dungeon generaton! ♥<br>
+        <br>
         <br>
         EXPLORATION<br>
         ----------<br>
         <br>
         You can walk around using the numpad ('<span style="color: #00ff62">42867913'</span>), Rogue ('<span style="color: #00ff62">hjklyubn</span>'), or the arrow ('<span style="color: #00ff62">←↓↑→</span>') keys. (Note: there is presently no way to move in inter-cardinals (ie. NE, SE, SW, NW) using the arrow keys, though I may add a modifier key to allow for this in the future.)<br>
         <br>
+        You can wait for a turn by pressing either the '<span style="color: #00ff62">[space]</span>' key, or '<span style="color: #00ff62">5</span>' on the numpad. Doing so will allow you to recover some health, unless there are monsters around. You'll still wait a turn, but you won't heal.<br>
+        <br>
         You can use your mouse to highlight tiles in your field of view to get some information about their contents. (This will likely be moved to keyboard functions in the future.)<br>
+        <br>
+        <br>
+        HUNGER <br>
+        ----------<br>
+        <br>
+        As you explore, you'll get hungry. You can fully restore your hunger by obtaining '<span style="color: #b3ff00">Rations</span>', and using them from your inventory. After reaching the '<span style="color: #ff0000">Starving!!</span>' hunger state, you'll lose health with each action and eventually die. Oh no! Better get a snack!<br>
+        <br>
         <br>
         ITEMS<br>
         ----------<br>
         <br>
         You can (<span style="color: #00ff62">g</span>)et/grab item from the ground, open (<span style="color: #00ff62">i</span>)nventory, climb down stairs (<span style="color: #00ff62">.</span>), (<span style="color: #00ff62">d</span>)rop items, (<span style="color: #00ff62">r</span>)emove equipment.<br><br>
-        When targeting a scroll, you can use the mouse to select a tile. (This will be moved to the keyboard in a future update)<br><br>
+        When targeting a scroll, you can use the mouse to select a tile. (This will be moved to the keyboard in a future update)<br>
+        <br>
+        <br>
+        MONSTERS <br>
+        ----------<br>
+        <br>
+        You will, fairly often, run into hostile creatures that want you for lunch. Normally this would be scary but you're a brave frog who is well equipped to deal with it, right? Of course you are! You can engage with monsters by attempting to occupy the same tile as them with movement (or, if you have a scroll or something, with that). You will deal and receive damage, and if you take damage exceeding your remaining health points Frogue will perish! Oops!<br>
 
       </div>
       <canvas id="canvas" width="640" height="480"></canvas>
@@ -103,6 +133,7 @@
       <br>
       It would be generous to say that what you see before you is anything more than the backbone of something much more carefully crafted. <br>
       A lot of systems are in place, a lot of systems aren't. This isn't yet what I'd call a 'game', but I think 'prototype' is fair. Bear that in mind! <br>
+      (Hell, even this page is probably a disaster)<br>
       <br>
       Please note that everything in the quick start guide is subject to change (especially controls) as game systems get more involved and more complex. <br>
       If for some reason you're keeping up with development, check here often! The arrow keys will not scroll the page or the quick start guide, so feel <br>

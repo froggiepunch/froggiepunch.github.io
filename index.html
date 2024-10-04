@@ -2,25 +2,78 @@
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
     <style>
-      body { /* 0.01 */
+      @font-face {
+        font-family: 'CustomFont';
+        src: url('./fonts/Web437_PhoenixEGA_8x14.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+      body {
         background-color: #121212; /* Dark background */
         color: #ffffff; /* Light text */
         margin: 0; /* Remove body margin */
+        font-family: 'CustomFont', sans-serif; /* Apply custom font */
+        text-align: right; /* Right-align text for the right-side text */
+      }
 
+      /* Ensure the canvas stays aligned to the left */
+      #game-container {
+        display: flex; /* Use flexbox to arrange elements */
+        justify-content: flex-start; /* Align items to the left */
+        margin: 10px; /* Add some margin around the container */
       }
 
       canvas {
-        display: block;
-        margin: auto;
-        /* Scale canvas 1.5x while maintaining original resolution */
-        width: 960px; /* 640px * 1.5 */
-        height: 720px; /* 480px * 1.5 */
-		cursor: none; /* Hide the mouse cursor */
+        cursor: none; /* Hide the mouse cursor */
+      }
+
+      /* Add margin below the game canvas for the bottom text */
+      #bottom-text {
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 14px;
+        text-align: left; /* Center the bottom text */
+      }
+
+      /* Right text element */
+      #right-text {
+        margin-left: 20px; /* Space between canvas and right text */
+        font-size: 14px;
+        text-align: left;
       }
     </style>
   </head>
   <body>
-    <canvas id="canvas" width="640" height="480"></canvas>
+    <div id="game-container">
+      <canvas id="canvas" width="640" height="480"></canvas>
+      <div id="right-text">Exploring:<br><br>
+        You can walk around using the numpad, Rogue ('hjklyubn') keys, or the arrow keys. (Note: there is presently no way to move in inter-cardinals (ie. NE, SE, SW, NW) using the arrow keys, though I may add a modifier key to allow for this in the future.)<br><br>
+        You can use your mouse to highlight tiles in your field of view to get some information about their contents. (This will likely be moved to keyboard functions in the future.)<br><br>
+        <br>
+        Actions:<br><br>
+        You can (g)et/grab item from the ground, open (i)nventory, climb down stairs (.), (d)rop items, (r)emove equipment.<br><br>
+        When targeting a scroll, you can use the mouse to select a tile. (This will be moved to the keyboard in a future update)
+
+        
+      </div>
+    </div>
+    
+    <div id="bottom-text">
+      Some day, a description of the game and perhaps other nonsense will be here. Like, maybe some day this will actually be a functioning webpage? <br><br><br>
+      Known Issues: <br><br>
+      <ul>
+        <li>Monsters can get stuck on corners (probably due to pathing and/or losing LoS)</li>
+        <li>The only way to cancel using a scroll is to click outside the target range, there should be a key press that allows you to cancel targeting</li>
+        <li>Duplicate items don't stack where it makes sense that they should (potions, scrolls (scrolls may or may not be stackable in the future, haven't decided yet))</li>
+        <li>There's no limit to inventory size, and this can lead to rendering issues, as well as displayed keys not actually doing anything</li>
+        <li>keys displayed in inventory use system that require a modifier key (ie. shift + whatever) don't work</li>
+        <li>No indication whatsoever that gear is equipped, or that you've removed it (or that it even can be removed)</li>
+        <li>game log doesn't clear/reset when quitting to main menu and starting a new game</li>
+        <li>some game log strings overlap other temporary ui elements</li>
+      </ul>
+    </div>
+
     <script src="./frogue-rl.js"></script>
     <script>
       window.addEventListener("load", async () => {

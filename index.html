@@ -13,18 +13,21 @@
         color: #ffffff; /* Light text */
         margin: 0; /* Remove body margin */
         font-family: 'CustomFont', sans-serif; /* Apply custom font */
-        text-align: right; /* Right-align text for the right-side text */
+        text-align: left; /* Align text to the left */
       }
 
       /* Ensure the canvas stays aligned to the left */
       #game-container {
         display: flex; /* Use flexbox to arrange elements */
-        justify-content: flex-start; /* Align items to the left */
-        margin: 10px; /* Add some margin around the container */
+        align-items: flex-start; /* Align items at the top */
+        margin: 5px; /* Add some margin around the container */
       }
 
       canvas {
         cursor: none; /* Hide the mouse cursor */
+        width: 1280px; /* 640px * 1.5 */
+        height: 960px; /* 480px * 1.5 */
+        transform-origin: top left; /* Set the origin of the scaling */
       }
 
       /* Add margin below the game canvas for the bottom text */
@@ -33,30 +36,57 @@
         margin-left: 20px;
         margin-right: 20px;
         font-size: 14px;
-        text-align: left; /* Center the bottom text */
+        text-align: left; /* Align the bottom text to the left */
       }
 
-      /* Right text element */
-      #right-text {
-        margin-left: 20px; /* Space between canvas and right text */
-        font-size: 14px;
-        text-align: left;
+      /* Left text element */
+      #left-text {
+          margin-right: 20px; /* Space between canvas and right text */
+          
+          /* Text Properties */
+          font-size: 14px; /* Font size */
+          text-align: left; /* Align text to the left */
+          
+          /* Box Model */
+          padding: 10px; /* Padding inside the box */
+          border: 2px solid #ffffff; /* White border */
+          border-radius: 5px; /* Rounded corners (optional) */
+          max-width: 300px; /* Set maximum width of the box */
+          max-height: 400px; /* Set maximum height to allow scrolling */
+          
+          /* Background and Word Wrapping */
+          background-color: rgba(29, 20, 41, 0.8); /* Semi-transparent background */
+          word-wrap: break-word; /* Allow long words to break onto the next line */
+          
+          /* Overflow Properties */
+          overflow-y: auto; /* Enable vertical scrolling */
       }
     </style>
   </head>
   <body>
     <div id="game-container">
-      <canvas id="canvas" width="640" height="480"></canvas>
-      <div id="right-text">Exploring:<br><br>
+      <div id="left-text">
+        Exploring:<br><br>
         You can walk around using the numpad, Rogue ('hjklyubn') keys, or the arrow keys. (Note: there is presently no way to move in inter-cardinals (ie. NE, SE, SW, NW) using the arrow keys, though I may add a modifier key to allow for this in the future.)<br><br>
         You can use your mouse to highlight tiles in your field of view to get some information about their contents. (This will likely be moved to keyboard functions in the future.)<br><br>
         <br>
         Actions:<br><br>
-        You can (g)et/grab item from the ground, open (i)nventory, climb down stairs (.), (d)rop items, (r)emove equipment.<br><br>
-        When targeting a scroll, you can use the mouse to select a tile. (This will be moved to the keyboard in a future update)
+        You can (<span style="color: #00ff62">g</span>)et/grab item from the ground, open (<span style="color: #00ff62">i</span>)nventory, climb down stairs (<span style="color: #00ff62">.</span>), (<span style="color: #00ff62">d</span>)rop items, (<span style="color: #00ff62">r</span>)emove equipment.<br><br>
+        When targeting a scroll, you can use the mouse to select a tile. (This will be moved to the keyboard in a future update)<br><br>
 
         
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget facilisis turpis. Proin sed libero id dui posuere tristique. In lacinia eleifend ornare. Proin iaculis odio sem, ut ornare augue dictum non. Aliquam gravida nibh et rutrum porta. Vivamus accumsan dignissim auctor. Fusce sit amet lacus a nisl convallis ullamcorper quis eleifend turpis. Aliquam condimentum in ante in mollis. Integer lorem tortor, hendrerit in sem ac, lacinia sollicitudin nulla. Nunc vulputate tellus tristique, eleifend velit ac, ornare sem. Sed viverra lectus metus, sed ultrices nisl faucibus nec. Praesent scelerisque facilisis arcu, non mollis ligula rutrum in. Integer facilisis libero a congue mollis. Nam laoreet molestie porta. Donec sollicitudin odio est, eu condimentum ligula imperdiet sed. Nam vulputate lectus nisi, in maximus velit feugiat et.
+
+Morbi eu tincidunt risus, ac rutrum quam. Integer non commodo libero. Integer vitae vehicula turpis. Pellentesque quam est, ultrices ac erat rutrum, pulvinar mollis elit. Donec ut quam ac sapien tempus placerat. Quisque ultrices malesuada turpis, et venenatis sem tincidunt sit amet. Integer ipsum augue, ornare vitae elit eu, consequat cursus libero. Ut eget mollis diam, non fermentum leo. Nam ante lorem, eleifend sit amet arcu at, aliquam imperdiet dui. Aliquam mattis, odio vitae porttitor egestas, odio massa mattis quam, in feugiat tortor turpis ut est. Praesent accumsan pulvinar mi, in accumsan dolor efficitur nec.
+
+Ut bibendum porta ligula, nec placerat metus fermentum in. Maecenas vitae ultrices urna. Duis eget vehicula nulla, eu facilisis enim. Vestibulum rutrum dignissim tristique. Praesent iaculis urna ac ornare tincidunt. Aliquam erat volutpat. Morbi in pulvinar odio.
+
+Nam sapien leo, finibus ac nisi eu, convallis eleifend velit. Vivamus quis vulputate libero, ac rutrum quam. Nam blandit nulla auctor nulla tempor, in vehicula augue malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent quis felis malesuada, pellentesque erat et, placerat dui. In non cursus ex. Nunc ac pharetra nulla. Proin ante ipsum, fermentum nec ultrices nec, suscipit ut mauris. Vestibulum iaculis egestas nulla. Suspendisse potenti. Phasellus non hendrerit nulla.
+
+Phasellus facilisis euismod lorem, ac viverra purus varius at. Phasellus porttitor aliquam justo, sit amet sodales dui accumsan et. Sed quis congue velit. Ut ac diam nisl. Morbi vel malesuada eros. Ut sed maximus justo. Pellentesque eu mi quis neque vehicula vestibulum. Sed ut fermentum dui. Suspendisse at aliquet ex, ut varius est. 
       </div>
+      <canvas id="canvas" width="640" height="480"></canvas>
     </div>
     
     <div id="bottom-text">
@@ -64,13 +94,13 @@
       Known Issues: <br><br>
       <ul>
         <li>Monsters can get stuck on corners (probably due to pathing and/or losing LoS)</li>
-        <li>The only way to cancel using a scroll is to click outside the target range, there should be a key press that allows you to cancel targeting</li>
+        <li>The only way to cancel using a scroll is to click outside the target range; there should be a key press that allows you to cancel targeting</li>
         <li>Duplicate items don't stack where it makes sense that they should (potions, scrolls (scrolls may or may not be stackable in the future, haven't decided yet))</li>
         <li>There's no limit to inventory size, and this can lead to rendering issues, as well as displayed keys not actually doing anything</li>
-        <li>keys displayed in inventory use system that require a modifier key (ie. shift + whatever) don't work</li>
+        <li>Keys displayed in inventory that use a system requiring a modifier key (ie. shift + whatever) don't work</li>
         <li>No indication whatsoever that gear is equipped, or that you've removed it (or that it even can be removed)</li>
-        <li>game log doesn't clear/reset when quitting to main menu and starting a new game</li>
-        <li>some game log strings overlap other temporary ui elements</li>
+        <li>Game log doesn't clear/reset when quitting to main menu and starting a new game</li>
+        <li>Some game log strings overlap other temporary UI elements</li>
       </ul>
     </div>
 
@@ -79,6 +109,21 @@
       window.addEventListener("load", async () => {
         await wasm_bindgen("./frogue-rl_bg.wasm");
       });
+    
+      // Prevent arrow keys from scrolling the page
+      window.addEventListener("keydown", function(event) {
+        if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key)) {
+          event.preventDefault(); // Prevent default scrolling behavior
+        }
+      });
+
+      // Prevent arrow key scrolling in the left text box
+      const leftTextBox = document.getElementById("left-text");
+        leftTextBox.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowUp" || event.key === "ArrowDown" || event.key === "ArrowLeft" || event.key === "ArrowRight") {
+                event.preventDefault(); // Prevent default scrolling behavior
+            }
+        });
     </script>
   </body>
 </html>

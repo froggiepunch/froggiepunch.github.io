@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <style>
+      body {
+        background-color: #121212; /* Dark background */
+        color: #ffffff; /* Light text */
+        margin: 0; /* Remove body margin */
+
+      }
+
+      canvas {
+        display: block;
+        margin: auto;
+        /* Scale canvas 1.5x while maintaining original resolution */
+        width: 960px; /* 640px * 1.5 */
+        height: 720px; /* 480px * 1.5 */
+		cursor: none; /* Hide the mouse cursor */
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <script src="./frogue-rl.js"></script>
+    <script>
+      window.addEventListener("load", async () => {
+        await wasm_bindgen("./frogue-rl_bg.wasm");
+      });
+    </script>
+  </body>
+</html>
